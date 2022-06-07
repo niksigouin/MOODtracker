@@ -11,18 +11,12 @@ public class DateController : MonoBehaviour
     [SerializeField] private TMP_Text dateText;
     private DateTime date = new DateTime();
     
-    // private DateTime date = new DateTime();
     void Start()
     {
         if (Instance != null && Instance != this) Destroy(this.gameObject);
         else Instance = this;
         
         InitialiseDate();
-    }
-    
-    void Update()
-    {
-        
     }
 
     private void InitialiseDate()
@@ -39,7 +33,6 @@ public class DateController : MonoBehaviour
     public void ChangeTargetDate(int t)
     {
         date = date.Date.AddDays(t);
-        // Debug.Log($"Changed date to {date.Date.ToString("D")}");
         UpdateDateText(date);
         AppEventManager.Instance.DateSelectionChanged?.Invoke(date);
     }

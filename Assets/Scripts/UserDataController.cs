@@ -40,4 +40,9 @@ public class UserDataController : MonoBehaviour
     {
         
     }
+
+    public void LoadUserData(DateTime date)
+    {
+        
+    }
 }
