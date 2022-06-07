@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppEventManager : MonoBehaviour
+public class AppEvents : MonoBehaviour
 {
-    public static AppEventManager Instance;
-    
+    public static AppEvents Instance;
+
     public Action<DateTime> DateSelectionChanged;
+    public Action<DateTime, int, int> NewLogEntry;
+    public Action<DateTime, string, Color> NewCategoryCreated;
     
     private void Start()
     {

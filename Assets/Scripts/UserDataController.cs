@@ -10,7 +10,7 @@ public class UserDataController : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        yield return new WaitUntil(() => AppEventManager.Instance != null);
+        yield return new WaitUntil(() => AppEvents.Instance != null);
         Subscribe();
     }
 
@@ -22,7 +22,7 @@ public class UserDataController : MonoBehaviour
 
     private void Subscribe()
     {
-        AppEventManager.Instance.DateSelectionChanged += OnDateSelectionChange;
+        AppEvents.Instance.DateSelectionChanged += OnDateSelectionChange;
     }
 
     private void UnSubscribe()
