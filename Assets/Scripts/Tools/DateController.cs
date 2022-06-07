@@ -41,7 +41,7 @@ public class DateController : MonoBehaviour
         date = date.Date.AddDays(t);
         // Debug.Log($"Changed date to {date.Date.ToString("D")}");
         UpdateDateText(date);
-        AppEventManager.Instance.DateSelectionChanged?.Invoke(date);
+        AppEvents.Instance.DateSelectionChanged?.Invoke(date);
     }
 
     public string DateString() => date.Date.ToString("D");
