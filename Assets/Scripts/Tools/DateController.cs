@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class DateController : MonoBehaviour
 {
+    public static DateController Instance;
     // Start is called before the first frame update
     [SerializeField] private TMP_Text dateText;
     private DateTime date = new DateTime();
@@ -13,6 +14,9 @@ public class DateController : MonoBehaviour
     // private DateTime date = new DateTime();
     void Start()
     {
+        if (Instance != null && Instance != this) Destroy(this.gameObject);
+        else Instance = this;
+        
         InitialiseDate();
     }
     
@@ -35,7 +39,10 @@ public class DateController : MonoBehaviour
     public void ChangeTargetDate(int t)
     {
         date = date.Date.AddDays(t);
-        Debug.Log($"Changed date to {date.Date.ToString("D")}");
+        // Debug.Log($"Changed date to {date.Date.ToString("D")}");
         UpdateDateText(date);
+        AppEventManager.Instance.DateSelectionChanged?.Invoke(date);
     }
+
+    public string DateString() => date.Date.ToString("D");
 }
