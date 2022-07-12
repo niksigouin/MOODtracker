@@ -10,6 +10,7 @@ public class AppEvents : MonoBehaviour
     public Action<DateTime> DateSelectionChanged;
     public Action<DateTime, int, int> NewLogEntry;
     public Action<DateTime, string, Color> NewCategoryCreated;
+    public Action<string> DeleteLogEntry;
     
     private void Start()
     {

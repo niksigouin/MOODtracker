@@ -38,4 +38,5 @@ public class DateController : MonoBehaviour
     }
 
     public string DateString() => date.Date.ToString("D");
+    public DateTime Date() => date.Date;
 }

@@ -19,11 +19,13 @@ public class BoxController : MonoBehaviour
     [ReadOnly] public string categoryName = "Mood";
     [ReadOnly] public int categoryValue = -1;
     [ReadOnly] public Color categoryColor = Color.yellow;
+    [SerializeField] public string uid;
+    
 
     private void Start()
     {
         
-        StartCoroutine(FillInData());
+        // StartCoroutine(FillInData());
         
     }
 
@@ -31,7 +33,6 @@ public class BoxController : MonoBehaviour
     {
         yield return new WaitUntil(() => CategoryBoxManager.Instance.dataReady);
         SetDataOnStart();
-        
     }
 
     private void SetDataOnStart()
